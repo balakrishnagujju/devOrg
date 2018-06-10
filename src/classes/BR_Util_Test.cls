@@ -14,4 +14,38 @@ private class BR_Util_Test{
     system.assert(true);
     BR_Util.getRecord('01p90000006uk2w');
   }
+
+  @setupMethod
+  static testMethod void initSetup(){
+
+  List<User> userList = new List<User>();
+         Profile p = [select id FROM Profile WHERE Name ='System Administrator'];
+         userList.add(new User(
+             FirstName = 'Alpha',
+             LastName = 'Wane',
+             Username = 'Alpha.Wane@Gotham.com',
+             Email = 'Alpha@Gotham.com',
+             Alias = 'AW',
+             CommunityNickname = 'aWane',
+             TimeZoneSidKey = 'America/Los_Angeles',
+             LocaleSidKey = 'en_US',
+             EmailEncodingKey = 'UTF-8',
+             ProfileId = p.Id,
+             LanguageLocaleKey = 'en_US'
+         ));
+         userList.add(new User(
+             FirstName = 'Martha',
+             LastName = 'Wane',
+             Username = 'Martha@Gotham.com',
+             Email = 'Martha@Gotham.com',
+             Alias = 'MW',
+             TimeZoneSidKey = 'America/Los_Angeles',
+             LocaleSidKey = 'en_US',
+             EmailEncodingKey = 'UTF-8',
+             ProfileId = p.Id,
+             LanguageLocaleKey = 'en_US'
+
+         ));
+         insert userList;
+  }
 }
