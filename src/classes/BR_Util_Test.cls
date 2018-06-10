@@ -15,8 +15,7 @@ private class BR_Util_Test{
     BR_Util.getRecord('01p90000006uk2w');
   }
 
-  @setupMethod
-  static testMethod void initSetup(){
+@testSetup static void initSetup(){
 
   List<User> userList = new List<User>();
          Profile p = [select id FROM Profile WHERE Name ='System Administrator'];
